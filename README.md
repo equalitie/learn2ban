@@ -82,7 +82,7 @@ These features are implemented at Learn2ban/src/features.
 * html_to_image_ratio - This feature considers the type of content that is being requested. It considers if a requester is only retrieving HTML content but no ancillary data such as images, css or javascript files.
 * variance_request_interval - While many DDOS attacks use a very simplistic brute force approach, some have incorporated a slightly more sophisticated approach by making burst requests in order to avoid being blocked by simple rules which allow only a certain number of requests within a time frame.
 * payload_size_average - this feature looks at the size of the content that a requester is retrieving.
-* HTTP_response_code_rate -
+* HTTP_response_code_rate - Considers http response rate, primarily looking for error codes that may signal a cache busting attack.
 * request_depth - Normal site users with commonly browse beyond the home page of a given site. Human users interaction with a website will resemble browsing more than that of a botnet.
 * request_depth_std - As an adjunct to request depth, this feature considers the standard deviation of a bot's request.
 * session_length - This feature also elucidates general behaviour considering the requester's interaction with a given sight in terms of session time.
