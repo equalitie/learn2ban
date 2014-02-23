@@ -1,0 +1,70 @@
+"""
+profiles and generates time sheet for different modules  of Learn2Ban
+
+<<<<<<< HEAD
+AUTHORS:
+ Vmon March 2013 Initial version
+"""
+from os.path import dirname, abspath
+=======
+AUTHORS: 
+ Vmon March 2013 Initial version
+"""
+from os.path import dirname
+>>>>>>> bf45af850b4850f592927ca918a77381b0e8b6a9
+from os import getcwd, chdir
+import sys
+import cProfile
+import datetime
+import subprocess
+<<<<<<< HEAD
+import pdb
+pdb.set_trace()
+
+try:
+    src_dir  = dirname(dirname(dirname(abspath(__file__))))
+    if not src_dir: src_dir = "/lu101/sahosse/doc/code/deflect/learn2ban/src"
+=======
+
+try:
+    src_dir  = dirname(dirname(__file__))
+    if not src_dir: src_dir = "/home/vmon/doc/code/deflect/learn2ban/src"
+>>>>>>> bf45af850b4850f592927ca918a77381b0e8b6a9
+except NameError:
+    #the best we can do to hope that we are in the test dir
+    src_dir = dirname(getcwd())
+
+#adding the src dir to the path for importing
+sys.path.append(src_dir)
+<<<<<<< HEAD
+sys.path.append(src_dir)
+=======
+>>>>>>> bf45af850b4850f592927ca918a77381b0e8b6a9
+
+
+#I need a way to run cProfile on modules instead of functions because
+#all I need is to profile.
+def profile_features():
+<<<<<<< HEAD
+    import test.test_features
+    
+=======
+    import tests.test_features
+
+>>>>>>> bf45af850b4850f592927ca918a77381b0e8b6a9
+    utc_datetime = datetime.datetime.utcnow()
+    utc_datetime.strftime("%Y-%m-%d-%H%MZ")
+    profile_log = 'profile_features_'  + str(utc_datetime) +".prof"
+
+<<<<<<< HEAD
+    cProfile.run('test.test_features.run_tests()', profile_log)
+=======
+    cProfile.run('tests.test_features.run_tests()', profile_log)
+>>>>>>> bf45af850b4850f592927ca918a77381b0e8b6a9
+    #subprocess.call(['/usr/lib/python2.7/cProfile.py', '-o', profile_log, '../test_features.py']);
+
+if __name__ == "__main__":
+    #profile all modules
+    #import pdb
+    #pdb.set_trace()
+    profile_features()

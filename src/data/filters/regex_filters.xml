@@ -1,0 +1,5 @@
+<filter name="User-Agent">
+	<regex>^&lt;HOST&gt; .*Firefox/1\.0\.1</regex>
+	<regex>^&lt;HOST&gt; .*MSIE 5</regex>
+	<regex>^&lt;HOST&gt; .*msnbot</regex>
+</filter>

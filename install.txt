@@ -1,0 +1,5 @@
+sudo apt-get install mysql
+sudo apt-get install libmysqlclient-dev
+sudo apt-get install build-essential python-dev python-numpy python-setuptools python-scipy libatlas-dev
+sudo apt-get install python-matplotlib
+easy_install pip

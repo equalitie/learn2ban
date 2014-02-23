@@ -1,0 +1,3 @@
+Feature classes should be stored in src/features folder. Inherit them from Learn2banFeature class.
+
+For now, features ip related, IPSieve class should be use to extract all records related to separate ips. The input to te Learn2BanFeature is the result of IPSieve for individual ips. Sieve
