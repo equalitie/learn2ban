@@ -36,6 +36,7 @@ Install required packages
 Initialise Learn2ban training database
 
     python src/initialise_db.py
+    
 
 Testing:
 --------
