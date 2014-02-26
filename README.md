@@ -1,7 +1,6 @@
 Learn2ban
 =========
-
-Apache Traffic Server Plugin performing various anti-DDoS measures
+Open source machine learning DDOS detection tool
 
 Copyright 2013 eQualit.ie
 
@@ -23,7 +22,6 @@ Installation
 
 The following libraries should be installed
 
-    [sudo] apt-get install mysql
     [sudo] apt-get install libmysqlclient-dev
     [sudo] apt-get install build-essential python-dev python-numpy python-setuptools python-scipy libatlas-dev
     [sudo] apt-get install python-matplotlib
@@ -33,11 +31,10 @@ Install required packages
 
     pip install -r requirements.txt
 
-Initialise Learn2ban training database
+Initialize Learn2ban training database
 
     python src/initialise_db.py
     
-
 Testing:
 --------
 Run python unit tests in the Learn2ban/src/test/ directory to ensure functionality.
@@ -45,30 +42,39 @@ Run python unit tests in the Learn2ban/src/test/ directory to ensure functionali
 Configuration
 =============
 
+Access to mysql server
+----------------------
+User needs to enter the access detail for a mysql server in config/train2ban.cfg. For example:
+
+    db_user = root
+    db_password = thisisapassword
+    db_host = mydb.myserver.com
+    db_name = learn2ban
+    config_profile = myconfig
+
+Then user need to run initialise_db.py
+
+    python initialise_db.py
+
+To create the database. User then is required to make a record in config table with profile name equal to config_profile (myconfig in this example) and enter the relevant directories in the table.
+
 Regex filters
 -------------
 
-In order to annotate input logs, Learn2ban uses the fail2ban regex filtering system to mark IP addresses as malicious or legitimate. The regex rules to apply can be set at Learn2ban/src/data/filters/regex_filters.xml
-
-The format is
-```xml
- <filter name="User-Agent">
-   <regex>^&lt;HOST&gt; .*Firefox/1\.0\.1</regex>
-   <regex>^&lt;HOST&gt; .*MSIE 5</regex>
-   <regex>^&lt;HOST&gt; .*msnbot</regex>
- </filter>
-```
+In order to annotate input logs, Learn2ban uses the fail2ban regex filtering system to mark IP addresses as malicious or legitimate. The regex rules to apply can be added to regex_filter table in learn2ban database
 
 Training data
 -------------
-The data from which the Learn2ban SVM model will be constructed should be placed in the Learn2ban/src/data directory.
+The data from which the Learn2ban SVM model will be constructed should be placed in the directory defined in the profile or entered in absolute path in experiment table if the profile asks for absolute path.
 
 Running Learn2ban Experiments
 =============================
 
-Learn2ban is currently designed to run in an experimental mode to allow users to create multiple variations of models, based on their training data, and to easily analyse the efficacy and accuracy of these models.
+Learn2ban is currently designed to run in an experimental mode to allow users to create multiple variations of models, based on their training data, and to easily analyze the efficacy and accuracy of these models.
 
-To run a configured learn2ban experiment execute
+User needs to enter the log file names in logs table, assign the regexes which identifies the bots in the log in regex_assignment table. User then design an experiment in experiments table, and assign the log to it in experiment_logs. 
+
+To run a configured learn2ban experiment, enable the experiment in experiments table and execute
 
     python src/analysis/experimentor.py
 
