@@ -1,0 +1,3 @@
+[submodule "src/fail2ban"]
+	path = src/fail2ban
+	url = github.com:/equalitie/fail2ban
