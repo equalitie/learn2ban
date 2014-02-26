@@ -1,3 +1,5 @@
 mysql-python==1.2.4
 scikit-learn
+fail2ban
+numpy
 
