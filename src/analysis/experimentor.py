@@ -31,7 +31,7 @@ import datetime
 from ip_sieve import IPSieve
 
 #feature classes
-from features.learn2ban_feature import Learn2BanFeature
+from features.src.learn2ban_feature import Learn2BanFeature
 
 #train to ban and other tools
 from train2ban import Train2Ban

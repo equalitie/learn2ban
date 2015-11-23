@@ -25,15 +25,15 @@ except NameError:
 sys.path.append(src_dir)
 
 from ip_sieve import IPSieve
-from features.learn2ban_feature import Learn2BanFeature
-from features.feature_average_request_interval import FeatureAverageRequestInterval
-from features.feature_variance_request_interval import FeatureVarianceRequestInterval
-from features.feature_cycling_user_agent import FeatureCyclingUserAgent
-from features.feature_html_to_image_ratio import FeatureHtmlToImageRatio
-from features.feature_request_depth import FeatureRequestDepth
-from features.feature_HTTP_response_code_rate import FeatureHTTPResponseCodeRate
-from features.feature_payload_size_average import FeaturePayloadSizeAverage
-from features.feature_request_depth_std import FeatureRequestDepthStd
+from features.src.learn2ban_feature import Learn2BanFeature
+from features.src.feature_average_request_interval import FeatureAverageRequestInterval
+from features.src.feature_variance_request_interval import FeatureVarianceRequestInterval
+from features.src.feature_cycling_user_agent import FeatureCyclingUserAgent
+from features.src.feature_html_to_image_ratio import FeatureHtmlToImageRatio
+from features.src.feature_request_depth import FeatureRequestDepth
+from features.src.feature_HTTP_response_code_rate import FeatureHTTPResponseCodeRate
+from features.src.feature_payload_size_average import FeaturePayloadSizeAverage
+from features.src.feature_request_depth_std import FeatureRequestDepthStd
 
 class KnownValues(unittest.TestCase):
     pass
